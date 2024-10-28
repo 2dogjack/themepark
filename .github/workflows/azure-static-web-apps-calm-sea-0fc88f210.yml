@@ -23,12 +23,12 @@ jobs:
 
       # Install dependencies
       - name: Install dependencies
-        working-directory: themepark/frontend  # Specify the correct path to frontend
+        working-directory: ./frontend  # Specify the correct path to frontend
         run: npm install
 
       # Build the project
       - name: Build project
-        working-directory: themepark/frontend  # Specify the correct path to frontend
+        working-directory: ./frontend # Specify the correct path to frontend
         run: npm run build
 
       # Deploy to Azure
@@ -42,7 +42,7 @@ jobs:
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           app_location: "frontend" # App source code path
           api_location: "" # Api source code path - optional
-          output_location: "frontend/build" # Built app content directory
+          output_location: frontend/build # Built app content directory
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
