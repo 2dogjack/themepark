@@ -21,16 +21,6 @@ jobs:
           submodules: true
           lfs: false
 
-      # Install dependencies
-      - name: Install dependencies
-        working-directory: ./frontend
-        run: npm install
-
-      # Build the project
-      - name: Build project
-        working-directory: ./frontend
-        run: npm run build
-
       # Deploy to Azure
       - name: Build And Deploy
         id: builddeploy
@@ -42,7 +32,6 @@ jobs:
           ###### Repository/Build Configurations ######
           app_location: "frontend"      # App source code path
           output_location: "dist"       # Built app content directory (relative to app_location)
-          skip_app_build: true          # Skip the build process in the action
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
