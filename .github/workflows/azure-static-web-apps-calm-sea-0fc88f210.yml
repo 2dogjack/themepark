@@ -23,12 +23,12 @@ jobs:
 
       # Install dependencies
       - name: Install dependencies
-        working-directory: frontend  # Specify the correct path to frontend
+        working-directory: themepark/frontend  # Specify the correct path to frontend
         run: npm install
 
       # Build the project
       - name: Build project
-        working-directory: frontend  # Specify the correct path to frontend
+        working-directory: themepark/frontend  # Specify the correct path to frontend
         run: npm run build
 
       # Deploy to Azure
