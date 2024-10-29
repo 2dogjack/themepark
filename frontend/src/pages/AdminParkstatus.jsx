@@ -39,7 +39,7 @@ const ParkStatusForm = () => {
 
   const getParkStatus = () => {
     axios
-      .get("${import.meta.env.VITE_API_BASE_URL}/parkstatus/read")
+      .get('${import.meta.env.VITE_API_BASE_URL}/parkstatus/read')
       .then((res) => setParkStatusList(res.data.result))
       .catch((err) => console.error(err));
   };
