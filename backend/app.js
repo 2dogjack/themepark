@@ -8,8 +8,18 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors());
+// Replace with your actual frontend URL
+const allowedOrigins = [
+  'https://your-actual-frontend-url.com',
+];
+
+// Middleware setup
 app.use(express.json());
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true,
+}));
 
 // Import your route handlers
 const auth = require('./routes/auth');
@@ -28,6 +38,12 @@ app.use('/events', events);
 app.use('/rides', rides);
 app.use('/shops', shops);
 app.use('/employees', employeeAuth);
+
+// Error-handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
+});
 
 // Define the PORT variable
 const PORT = process.env.PORT || 3000;
