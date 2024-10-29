@@ -10,7 +10,7 @@ export default function GiftShops() {
   const [shopList, setShopList] = useState([]);
   const getShops = () => {
     axios
-      .get('${import.meta.env.VITE_API_BASE_URL}/shops/readGiftShops')
+      .get(`${import.meta.env.VITE_API_BASE_URL}/shops/readGiftShops`)
       .then((res) => setShopList(res.data.result))
       .catch((err) => console.error(err));
   };
