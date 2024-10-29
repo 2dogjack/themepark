@@ -13,7 +13,7 @@ export default function Events() {
   const [eventList, setEventList] = useState([]);
   const getEvents = () => {
     axios
-      .get("http://localhost:3000/events/read")
+      .get("${import.meta.env.VITE_API_BASE_URL}/events/read")
       .then((res) => setEventList(res.data.result))
       .catch((err) => console.error(err));
   };
