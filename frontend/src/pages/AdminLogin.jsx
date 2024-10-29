@@ -12,7 +12,7 @@ export default function AdminLogin() {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('${import.meta.env.VITE_API_BASE_URL}/admin', values).then((res) => {
+    axios.post(`${import.meta.env.VITE_API_BASE_URL}/admin`, values).then((res) => {
       res.data.Status == "Success"
         ? navigate("/admin/reports")
         : alert(res.data.Error);
