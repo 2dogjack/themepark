@@ -25,7 +25,7 @@ const ParkStatusForm = () => {
     }
     try {
       const response = await axios.post(
-        '${import.meta.env.VITE_API_BASE_URL}/parkstatus/create',
+        `${import.meta.env.VITE_API_BASE_URL}/parkstatus/create`,
         ParkStatusData
       );
       if(response.data.message) {
@@ -39,7 +39,7 @@ const ParkStatusForm = () => {
 
   const getParkStatus = () => {
     axios
-      .get('${import.meta.env.VITE_API_BASE_URL}/parkstatus/read')
+      .get(`${import.meta.env.VITE_API_BASE_URL}/parkstatus/read`)
       .then((res) => setParkStatusList(res.data.result))
       .catch((err) => console.error(err));
   };
