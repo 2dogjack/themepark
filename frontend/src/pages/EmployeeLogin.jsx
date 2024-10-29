@@ -12,7 +12,7 @@ export default function EmployeeLogin() {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('${import.meta.env.VITE_API_BASE_URL}/employees/auth', values).then((res) => {
+    axios.post(`${import.meta.env.VITE_API_BASE_URL}/employees/auth`, values).then((res) => {
       res.data.Status == "Success"
         ? navigate("/employees")
         : alert(res.data.Error);
