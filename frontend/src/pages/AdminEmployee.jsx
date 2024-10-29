@@ -32,7 +32,7 @@ export default function AdminEmployee() {
     e.preventDefault();
     try {
       const request = await axios.post(
-        "${import.meta.env.VITE_API_BASE_URL}/employee/create",
+        '${import.meta.env.VITE_API_BASE_URL}/employee/create',
         values
       );
       alert(request.data);
@@ -60,7 +60,7 @@ export default function AdminEmployee() {
 
   const getEmployees = () => {
     axios
-      .get("${import.meta.env.VITE_API_BASE_URL}/employee/read")
+      .get('${import.meta.env.VITE_API_BASE_URL}/employee/read')
       .then((res) => setEmployeeList(res.data.result))
       .catch((err) => console.error(err));
   };
@@ -85,7 +85,7 @@ export default function AdminEmployee() {
   const handleUpdate = (e) => {
     e.preventDefault();
     axios
-      .put("${import.meta.env.VITE_API_BASE_URL}/employee/update", values)
+      .put('${import.meta.env.VITE_API_BASE_URL}/employee/update', values)
       .then((res) => alert(res.data))
       .catch((err) => console.log(err));
     setDeleteState(deleteState == true ? false : true);
