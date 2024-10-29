@@ -10,16 +10,16 @@ const app = express();
 
 // Replace with your actual frontend URL
 const allowedOrigins = [
-  'https://your-actual-frontend-url.com',
+  'https://calm-sea-0fc88f210.5.azurestaticapps.net', // Your actual frontend URL
 ];
 
 // Middleware setup
-app.use(express.json());
 app.use(cors({
   origin: allowedOrigins,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true,
 }));
+app.use(express.json());
 
 // Import your route handlers
 const auth = require('./routes/auth');
@@ -49,6 +49,6 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 3000;
 
 // Start the server
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
